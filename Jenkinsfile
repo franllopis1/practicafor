@@ -4,10 +4,12 @@ pipeline {
     stage('practica for') {
       steps {
         sh '''
-        for i in `cat release.yaml`
+        for i in `cut -d ":" -f1 release.yaml`
         do
-          echo La version `cut -d " " -f1 $i` es `cut -d " " -f2 $i`
-        done'''
+          echo $i
+        done |
+
+        '''
       }
     }
   }
