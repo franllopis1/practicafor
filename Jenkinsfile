@@ -3,7 +3,10 @@ pipeline {
   stages {
     stage('practica') {
       steps {
-        sh 'for i in [release.yaml] do echo La version $i'
+        sh 'for i in `cat release.yaml`
+        do
+          echo La verson $i 
+        done'
       }
     }
   }
