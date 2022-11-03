@@ -1,11 +1,11 @@
 pipeline {
   agent any
   stages {
-    stage('practica') {
+    stage('practica for') {
       steps {
-        sh '''for i in `cat release.yaml`
+        sh '''for i in `cut -d " " -f1 release.yaml`
         do
-          echo La verson $i
+          echo La version $i $e
         done'''
       }
     }
